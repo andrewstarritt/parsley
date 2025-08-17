@@ -1,0 +1,109 @@
+#!/bin/bash
+#
+
+iam=$( basename ${0} )
+cd $( dirname $( readlink -f ${0} ) )
+
+prefix="/tmp/${USER}_${iam}_$$"
+
+out=${prefix:?}.out
+err=${prefix:?}.err
+
+cp /dev/null  ${out:?}
+cp /dev/null  ${err:?}
+
+function test_case() {
+    local number=${1}
+    shift 1
+
+    echo "Test case ${number:?}"
+    echo "Test case ${number:?}" >>${out:?}
+    echo "Test case ${number:?}" >>${err:?}
+
+    parsley_test "$@"  >> ${out:?}  2>> ${err:?}
+    echo >>${out:?} ""
+    echo >>${err:?} ""
+}
+
+# Null tests
+test_case  1 --help      1
+test_case  2  xxx yyy    1
+
+# Basic tests
+test_case 11 --help                        2
+test_case 12 -h                            2
+test_case 13 --version                     2
+test_case 14 -V                            2
+test_case 15                      xxx yyy  2
+test_case 16 --flag               xxx yyy  2
+test_case 17 -f                   xxx yyy  2
+test_case 18 --string 'peter pan' xxx yyy  2
+test_case 19 -s       'peter pan' xxx yyy  2
+test_case 20 --mode aaa           xxx yyy  2
+test_case 21 -m     bbb           xxx yyy  2
+test_case 22 --number -42         xxx yyy  2
+test_case 23 -n        43         xxx yyy  2
+test_case 24 --real   -2.71828    xxx yyy  2
+test_case 25 -r       +3.14159    xxx yyy  2
+
+# Inbuilt default
+test_case 31 -h                      3
+test_case 32 -V                      3
+test_case 33                xxx yyy  3
+test_case 34 -f             xxx yyy  3
+test_case 35 -s 'peter pan' xxx yyy  3
+test_case 36 -m  bbb        xxx yyy  3
+test_case 37 -n  43         xxx yyy  3
+test_case 38 -r  +3.14159   xxx yyy  3
+
+# Env Var default
+test_case 41 -h                      4
+test_case 42 -V                      4
+test_case 43                xxx yyy  4
+test_case 44 -f             xxx yyy  4
+test_case 45 -s 'peter pan' xxx yyy  4
+test_case 46 -m  bbb        xxx yyy  4
+test_case 47 -n  43         xxx yyy  4
+test_case 48 -r  +3.14159   xxx yyy  4
+
+export PARSLEY_FLAG="Y"
+export PARSLEY_STR="The quick brown fox"
+export PARSLEY_ENUM="ddd"
+export PARSLEY_INT="-1024"
+export PARSLEY_REAL="+451.451"
+
+test_case 51 -h                      4
+test_case 52 -V                      4
+test_case 53                xxx yyy  4
+test_case 54 -f             xxx yyy  4
+test_case 55 -s 'peter pan' xxx yyy  4
+test_case 56 -m  bbb        xxx yyy  4
+test_case 57 -n  43         xxx yyy  4
+test_case 58 -r  +3.14159   xxx yyy  4
+
+
+
+colordiff  golden_out.txt ${out:?}
+s1=$?
+
+colordiff  golden_err.txt ${err:?}
+s2=$?
+
+if [ ${s1:?} -eq 0 ] && [ ${s2:?} -eq 0 ] ; then
+   echo "parsley unit tests successfull"
+   rm -f  ${prefix:?}*
+else
+   echo "parsley unit tests failed"
+   echo ""
+   ls --color -l ${prefix:?}*
+
+   if [ "${1}" == "capture" ] ; then
+      cp ${out:?} golden_out.txt
+      cp ${err:?} golden_err.txt
+      echo "golden result updated"
+      rm -f  ${prefix:?}*
+   fi
+
+fi
+
+# end

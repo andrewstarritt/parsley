@@ -1,0 +1,11 @@
+bin/
+include/
+lib/
+obj/
+html/
+latex/
+*.user
+*.o
+*.so
+*~
+z*

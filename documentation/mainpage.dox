@@ -1,0 +1,36 @@
+/** mainpage.docx
+ */
+
+/** \mainpage
+
+<h2>Introduction</h2>
+
+Parsley is a C++ library that may be used to parse command line options.
+Parsley sprinkles a little flavor on your parsing.
+Parsley was inspired, in part at least, by the python click module.
+
+Parsley was developed on and for Linux, however it should be readily
+buildable on other operating systems.
+
+__Note:__ parsley does not parse command line a parameter, i.e. those
+arguments that are deemed not to be options.
+
+<h2>Licence</h2>
+
+SPDX-FileCopyrightText: 2025  Andrew C. Starritt<br>
+SPDX-License-Identifier: LGPL-2.1-only
+
+<h2>Comments</h2>
+
+For numeric option values, only decimal formats are supported.
+
+While inspired by python's click module, this is by no measure a
+re-implementation of click into C++.
+For example:
+
+ - parsely only parses options, not arguments.
+ - parsely does not directly support command groups/sub-commands.
+ - parsely does support file types.
+
+
+*/

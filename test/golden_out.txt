@@ -1,0 +1,434 @@
+Test case 1
+parsley test: parsley_test --help 1
+parsley test complete
+
+Test case 2
+parsley test: parsley_test xxx yyy 1
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 1
+parsley test complete
+
+Test case 11
+parsley test: parsley_test --help 2
+Options:
+-f, --flag          The flag option description.
+-s, --string        The string option description.
+-m, --mode          The mode option description.
+                    Allowed values: (aaa, bbb, ccc, ddd, eee, fff).
+-n, --number        The number option description.
+-r, --real          The real option description.
+-V, --version       Show version and exit.
+-h, --help          Show this message and exit.
+parsley test complete
+
+Test case 12
+parsley test: parsley_test -h 2
+Options:
+-f, --flag          The flag option description.
+-s, --string        The string option description.
+-m, --mode          The mode option description.
+                    Allowed values: (aaa, bbb, ccc, ddd, eee, fff).
+-n, --number        The number option description.
+-r, --real          The real option description.
+-V, --version       Show version and exit.
+-h, --help          Show this message and exit.
+parsley test complete
+
+Test case 13
+parsley test: parsley_test --version 2
+Test Version 1.2
+parsley test complete
+
+Test case 14
+parsley test: parsley_test -V 2
+Test Version 1.2
+parsley test complete
+
+Test case 15
+parsley test: parsley_test xxx yyy 2
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 2
+parsley test complete
+
+Test case 16
+parsley test: parsley_test --flag xxx yyy 2
+flag         defined       flag: set    ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 2
+parsley test complete
+
+Test case 17
+parsley test: parsley_test -f xxx yyy 2
+flag         defined       flag: set    ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 2
+parsley test complete
+
+Test case 18
+parsley test: parsley_test --string peter pan xxx yyy 2
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'peter pan'
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 2
+parsley test complete
+
+Test case 19
+parsley test: parsley_test -s peter pan xxx yyy 2
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'peter pan'
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 2
+parsley test complete
+
+Test case 20
+parsley test: parsley_test --mode aaa xxx yyy 2
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         defined       flag: unset  ival:          0 real:          0 str: 'aaa'
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 2
+parsley test complete
+
+Test case 21
+parsley test: parsley_test -m bbb xxx yyy 2
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         defined       flag: unset  ival:          1 real:          0 str: 'bbb'
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 2
+parsley test complete
+
+Test case 22
+parsley test: parsley_test --number -42 xxx yyy 2
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       defined       flag: unset  ival:        -42 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 2
+parsley test complete
+
+Test case 23
+parsley test: parsley_test -n 43 xxx yyy 2
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       defined       flag: unset  ival:         43 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 2
+parsley test complete
+
+Test case 24
+parsley test: parsley_test --real -2.71828 xxx yyy 2
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:   -2.71828 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 2
+parsley test complete
+
+Test case 25
+parsley test: parsley_test -r +3.14159 xxx yyy 2
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    3.14159 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 2
+parsley test complete
+
+Test case 31
+parsley test: parsley_test -h 3
+Options:
+-f, --flag          The flag option description.
+-s, --string        The string option description.
+                    Default value: 'one'.
+-m, --mode          The mode option description.
+                    Allowed values: (aaa, bbb, ccc, ddd, eee, fff). Default value: 'eee'.
+-n, --number        The number option description.
+                    Default value: 10.
+-r, --real          The real option description.
+                    Default value: 31.6227.
+-V, --version       Show version and exit.
+-h, --help          Show this message and exit.
+parsley test complete
+
+Test case 32
+parsley test: parsley_test -V 3
+Test Version 1.2
+parsley test complete
+
+Test case 33
+parsley test: parsley_test xxx yyy 3
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'one'
+mode         defined       flag: unset  ival:          4 real:          0 str: 'eee'
+number       defined       flag: unset  ival:         10 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    31.6227 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 3
+parsley test complete
+
+Test case 34
+parsley test: parsley_test -f xxx yyy 3
+flag         defined       flag: set    ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'one'
+mode         defined       flag: unset  ival:          4 real:          0 str: 'eee'
+number       defined       flag: unset  ival:         10 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    31.6227 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 3
+parsley test complete
+
+Test case 35
+parsley test: parsley_test -s peter pan xxx yyy 3
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'peter pan'
+mode         defined       flag: unset  ival:          4 real:          0 str: 'eee'
+number       defined       flag: unset  ival:         10 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    31.6227 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 3
+parsley test complete
+
+Test case 36
+parsley test: parsley_test -m bbb xxx yyy 3
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'one'
+mode         defined       flag: unset  ival:          1 real:          0 str: 'bbb'
+number       defined       flag: unset  ival:         10 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    31.6227 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 3
+parsley test complete
+
+Test case 37
+parsley test: parsley_test -n 43 xxx yyy 3
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'one'
+mode         defined       flag: unset  ival:          4 real:          0 str: 'eee'
+number       defined       flag: unset  ival:         43 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    31.6227 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 3
+parsley test complete
+
+Test case 38
+parsley test: parsley_test -r +3.14159 xxx yyy 3
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'one'
+mode         defined       flag: unset  ival:          4 real:          0 str: 'eee'
+number       defined       flag: unset  ival:         10 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    3.14159 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 3
+parsley test complete
+
+Test case 41
+parsley test: parsley_test -h 4
+Options:
+-f, --flag          The flag option description.
+                    Use the PARSLEY_FLAG environment variable set to 'Y', 'YES' or '1' to set
+                    flag on.
+-s, --string        The string option description.
+                    Use the PARSLEY_STR environment variable to provide a default value.
+-m, --mode          The mode option description.
+                    Allowed values: (aaa, bbb, ccc, ddd, eee, fff). Use the PARSLEY_ENUM environment
+                    variable to provide a default value.
+-n, --number        The number option description.
+                    Use the PARSLEY_INT environment variable to provide a default value.
+-r, --real          The real option description.
+                    Use the PARSLEY_REAL environment variable to provide a default value.
+-V, --version       Show version and exit.
+-h, --help          Show this message and exit.
+parsley test complete
+
+Test case 42
+parsley test: parsley_test -V 4
+Test Version 1.2
+parsley test complete
+
+Test case 43
+parsley test: parsley_test xxx yyy 4
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 4
+parsley test complete
+
+Test case 44
+parsley test: parsley_test -f xxx yyy 4
+flag         defined       flag: set    ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 4
+parsley test complete
+
+Test case 45
+parsley test: parsley_test -s peter pan xxx yyy 4
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'peter pan'
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 4
+parsley test complete
+
+Test case 46
+parsley test: parsley_test -m bbb xxx yyy 4
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         defined       flag: unset  ival:          1 real:          0 str: 'bbb'
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 4
+parsley test complete
+
+Test case 47
+parsley test: parsley_test -n 43 xxx yyy 4
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       defined       flag: unset  ival:         43 real:          0 str: ''
+real         not defined   flag: unset  ival:          0 real:          0 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 4
+parsley test complete
+
+Test case 48
+parsley test: parsley_test -r +3.14159 xxx yyy 4
+flag         defined       flag: unset  ival:          0 real:          0 str: ''
+string       not defined   flag: unset  ival:          0 real:          0 str: ''
+mode         not defined   flag: unset  ival:          0 real:          0 str: ''
+number       not defined   flag: unset  ival:          0 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    3.14159 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 4
+parsley test complete
+
+Test case 51
+parsley test: parsley_test -h 4
+Options:
+-f, --flag          The flag option description.
+                    Use the PARSLEY_FLAG environment variable set to 'Y', 'YES' or '1' to set
+                    flag on.
+-s, --string        The string option description.
+                    Use the PARSLEY_STR environment variable to provide a default value.
+-m, --mode          The mode option description.
+                    Allowed values: (aaa, bbb, ccc, ddd, eee, fff). Use the PARSLEY_ENUM environment
+                    variable to provide a default value.
+-n, --number        The number option description.
+                    Use the PARSLEY_INT environment variable to provide a default value.
+-r, --real          The real option description.
+                    Use the PARSLEY_REAL environment variable to provide a default value.
+-V, --version       Show version and exit.
+-h, --help          Show this message and exit.
+parsley test complete
+
+Test case 52
+parsley test: parsley_test -V 4
+Test Version 1.2
+parsley test complete
+
+Test case 53
+parsley test: parsley_test xxx yyy 4
+flag         defined       flag: set    ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'The quick brown fox'
+mode         defined       flag: unset  ival:          3 real:          0 str: 'ddd'
+number       defined       flag: unset  ival:      -1024 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    451.451 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 4
+parsley test complete
+
+Test case 54
+parsley test: parsley_test -f xxx yyy 4
+flag         defined       flag: set    ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'The quick brown fox'
+mode         defined       flag: unset  ival:          3 real:          0 str: 'ddd'
+number       defined       flag: unset  ival:      -1024 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    451.451 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 4
+parsley test complete
+
+Test case 55
+parsley test: parsley_test -s peter pan xxx yyy 4
+flag         defined       flag: set    ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'peter pan'
+mode         defined       flag: unset  ival:          3 real:          0 str: 'ddd'
+number       defined       flag: unset  ival:      -1024 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    451.451 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 4
+parsley test complete
+
+Test case 56
+parsley test: parsley_test -m bbb xxx yyy 4
+flag         defined       flag: set    ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'The quick brown fox'
+mode         defined       flag: unset  ival:          1 real:          0 str: 'bbb'
+number       defined       flag: unset  ival:      -1024 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    451.451 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 4
+parsley test complete
+
+Test case 57
+parsley test: parsley_test -n 43 xxx yyy 4
+flag         defined       flag: set    ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'The quick brown fox'
+mode         defined       flag: unset  ival:          3 real:          0 str: 'ddd'
+number       defined       flag: unset  ival:         43 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    451.451 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 4
+parsley test complete
+
+Test case 58
+parsley test: parsley_test -r +3.14159 xxx yyy 4
+flag         defined       flag: set    ival:          0 real:          0 str: ''
+string       defined       flag: unset  ival:          0 real:          0 str: 'The quick brown fox'
+mode         defined       flag: unset  ival:          3 real:          0 str: 'ddd'
+number       defined       flag: unset  ival:      -1024 real:          0 str: ''
+real         defined       flag: unset  ival:          0 real:    3.14159 str: ''
+mistake      not defined   flag: unset  ival:          0 real:          0 str: ''
+params: xxx yyy 4
+parsley test complete
+
